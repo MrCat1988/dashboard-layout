@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="../dist/output.css">
+    <script src="../dist/alpine.min.js" defer></script>
+    <style>
+        html{ scroll-behavior: smooth; }
+        .active { background-color: aliceblue;color: blue;}
+    </style>
+    <title>Dashboard</title>
+</head>
+<body class="bg-gray-100">
+    <!-- HEADER BAR -->
+    <div class="header bg-gray-50 flex items-center justify-between px-6 py-1 shadow-sm sticky top-0 z-50">
+        <span class="flex items-start hover:cursor-pointer">
+            <span class="material-symbols-outlined text-2xl align-middle">dashboard</span>
+            <h2 class="text-2xl"> Dashboard</h2>
+        </span>
+        <span x-data="{ open :  false }">
+            <button x-on:click="open = !open" class="bg-gray-200 px-2 py-1 rounded-xl hover:bg-gray-300">
+                <span class="material-symbols-outlined text-4xl">account_circle</span>
+                <nav x-show="open" x-on:click.away="open = false" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95">
+                    <ul>
+                        <li class="bg-gray-100  px-2 rounded-md hover:bg-gray-50 hover:font-light">
+                            <a class="text-sm" href="#">Cerrar sesión</a>
+                        </li>
+                    </ul>
+                </nav>
+            </button>
+        </span>
+
+        
+    </div>
+
+    <div id="sidebar-section" class="h-screen fixed">
+        <div id="sidebar" class="fixed h-screen top-0 left-0 bg-slate-800 w-14 hover:w-72 duration-200">
+            <nav role="navigation" class="pl-4 pt-8 mt-48">
+
+                <div class="mt-4 relative overflow-hidden">
+                    <h2 class="name text-white fixed left-0 top-0 text-lg">
+                        POS
+                    </h2>
+                    <ul id="nav-list" class="nav-list space-y-8 ">
+                        <li class="nav-item p-2 rounded-l-lg text-xl active text-white">
+                            <a class="flex gap-5" href="#home"><span class="material-symbols-outlined text-2xl align-middle">Home</span> Home</a>
+                        </li>
+                        <li class="nav-item p-2 rounded-l-lg text-xl text-white">
+                            <a class="flex gap-5" href="#about"><span class="material-symbols-outlined text-2xl align-middle">storefront</span> About</a>
+                        </li>
+                        <li class="nav-item p-2 rounded-l-lg text-xl text-white">
+                            <a class="flex gap-5" href="#products"><span class="material-symbols-outlined text-2xl align-middle">inventory_2</span> Products</a>
+                        </li>
+                        <li class="nav-item p-2 rounded-l-lg text-xl text-white">
+                            <a class="flex gap-5" href="#contact"><span class="material-symbols-outlined text-2xl align-middle">phone_iphone</span> Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <div id="content" class="md:ml-20">
+        <div id="home" class="bg-red-300 h-screen flex justify-center">
+            <h2 class="m-auto text-4xl">Home</h2>
+        </div>
+        <div id="about" class="bg-pink-300 h-screen flex justify-center">
+            <h2 class="m-auto text-4xl">About</h2>
+        </div>
+        <div id="products" class="bg-yellow-300 h-screen flex justify-center">
+            <h2 class="m-auto text-4xl">Products</h2>
+        </div>
+        <div id="contact" class="bg-green-300 h-screen flex justify-center">
+            <h2 class="m-auto text-4xl">Contact</h2>
+        </div>
+
+    </div>
+
+
+
+
+
+
+<script src="../dist/main.js"></script>
+
+</body>
+</html>
